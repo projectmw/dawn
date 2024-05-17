@@ -2893,7 +2893,7 @@ details-disclosure > details {
   background: rgb(var(--color-background));
   background: var(--gradient-background);
   background-attachment: fixed;
-  background: 'green';
+  background: 'blue';
 }
 
 @media screen and (forced-colors: active) {

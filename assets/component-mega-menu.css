@@ -16,6 +16,23 @@
   top: 100%;
 }
 
+.nav__flex-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mega-menu__images{
+  display: flex;
+  flex-shrink: 1;
+  flex-wrap: nowrap;
+}
+
+.mega-menu__image {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5rem;
+}
+
 .shopify-section-header-sticky .mega-menu__content {
   max-height: calc(100vh - var(--header-bottom-position-desktop, 20rem) - 4rem);
 }

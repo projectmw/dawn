@@ -178,7 +178,12 @@
             </ul>
 
             {%- if paginate.pages > 1 -%}
-              {% render 'pagination', paginate: paginate, anchor: '' %}
+              <div class="pagination-container">
+                {% if paginate.next.is_link %}
+                  <a href="{{ paginate.next.url }}" class="button--load-more button">Load More </a>
+                {% endif %}
+                {% render 'pagination', paginate: paginate, anchor: '' %}
+              </div>
             {%- endif -%}
           </div>
         {%- endif -%}
@@ -410,3 +415,5 @@
   ]
 }
 {% endschema %}
+
+<script src="{{ 'load-more-button.js' | asset_url }}" paginate: paginate defer="defer"></script>

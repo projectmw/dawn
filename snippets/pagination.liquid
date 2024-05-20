@@ -17,23 +17,25 @@
   <div class="pagination-wrapper">
     <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
       <ul class="pagination__list list-unstyled" role="list">
-        {%- if paginate.previous -%}
-          <li>
-            <a
-              href="{{ paginate.previous.url }}{{ anchor }}"
-              class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce"
-              aria-label="{{ 'general.pagination.previous' | t }}"
-            >
-              {% render 'icon-caret' %}
-            </a>
-          </li>
-        {%- endif -%}
-
+        {% comment %}
+          {%- if paginate.previous -%}
+            <li>
+              <a
+                href="{{ paginate.previous.url }}{{ anchor }}"
+                class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce"
+                aria-label="{{ 'general.pagination.previous' | t }}"
+              >
+                {% render 'icon-caret' %}
+              </a>
+            </li>
+          {%- endif -%}
+        {% endcomment %}
         {%- for part in paginate.parts -%}
           <li>
             {%- if part.is_link -%}
               <a
                 href="{{ part.url }}{{ anchor }}"
+                data-link="{{ part.url }}{{ anchor }}"
                 class="pagination__item link"
                 aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
               >
@@ -42,6 +44,7 @@
             {%- else -%}
               {%- if part.title == paginate.current_page -%}
                 <a
+                  data-link="{{ canonical_url }}"
                   role="link"
                   aria-disabled="true"
                   class="pagination__item pagination__item--current light"
@@ -56,18 +59,19 @@
             {%- endif -%}
           </li>
         {%- endfor -%}
-
-        {%- if paginate.next -%}
-          <li>
-            <a
-              href="{{ paginate.next.url }}{{ anchor }}"
-              class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce"
-              aria-label="{{ 'general.pagination.next' | t }}"
-            >
-              {%- render 'icon-caret' -%}
-            </a>
-          </li>
-        {%- endif -%}
+        {% comment %}
+          {%- if paginate.next -%}
+            <li>
+              <a
+                href="{{ paginate.next.url }}{{ anchor }}"
+                class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce"
+                aria-label="{{ 'general.pagination.next' | t }}"
+              >
+                {%- render 'icon-caret' -%}
+              </a>
+            </li>
+          {%- endif -%}
+        {% endcomment %}
       </ul>
     </nav>
   </div>

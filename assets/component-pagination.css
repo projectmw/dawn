@@ -8,10 +8,22 @@
   }
 }
 
+.pagination-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .pagination__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+@media screen and (min-width: 990px) {
+  .pagination__list {
+    justify-content: flex-start;
+  }
 }
 
 .pagination__list > li {
@@ -79,4 +91,17 @@ a.pagination__item:hover::after {
 
 .pagination__item-arrow:hover::after {
   display: none;
+}
+
+.button--load-more {
+  display: flex;
+}
+
+@media screen and (min-width: 990px) {
+  .button--load-more {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
 }

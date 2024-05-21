@@ -72,22 +72,22 @@
 
                   <div class="mega-menu__images">
                     {% for i in (1..3) %}
-                      {% assign var = forloop.parentloop.index
+                      {% assign megamenuImage = forloop.parentloop.index
                         | prepend: 'mega_menu_'
                         | append: '_image_'
                         | append: i
                       %}
-                      {%- if section.settings[var] != blank -%}
+                      {%- if section.settings[megamenuImage] != blank -%}
                         <div class="mega-menu__image">
                           <img
-                            src="{{ section.settings[var].image | image_url }}"
+                            src="{{ section.settings[megamenuImage].image | image_url }}"
                             alt=""
                             loading="lazy"
                             height="338"
                             width="auto"
                           >
                           <span>
-                            {{- section.settings[var].alt }}
+                            {{- section.settings[megamenuImage].alt }}
                           </span>
                         </div>
                       {%- endif -%}

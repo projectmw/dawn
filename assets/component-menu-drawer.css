@@ -77,11 +77,17 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation-container {
-  display: grid;
+  display: block;
   grid-template-rows: 1fr auto;
   align-content: space-between;
   overflow-y: auto;
   height: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .menu-drawer {
+    display: grid;
+  }
 }
 
 .menu-drawer__navigation {
